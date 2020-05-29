@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0vseGK9L1yGUpMY3sj0lSmBMp8LtT06Wh5VxKNdT/izk9cqGjDTaWlvuKmMjIC4adhq1VpnK0czaqX6a8LfQPQ==",
+  "dgSpecHash": "iNDYwsl9g4mae42YR3agx40aztx80ib7cRwllhnKpbAdYLDwi6oRwkVsjFc/Hq4LHBvS8K930GTELhHD5C4fvg==",
   "success": true,
   "projectFilePath": "C:\\Users\\juanc\\source\\repos\\CulturalCitiesApp\\CulturalCitiesApp\\CulturalCitiesApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\juanc\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\juanc\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.arch.core.common\\1.1.1.3\\xamarin.android.arch.core.common.1.1.1.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.arch.core.runtime\\1.1.1.3\\xamarin.android.arch.core.runtime.1.1.1.3.nupkg.sha512",

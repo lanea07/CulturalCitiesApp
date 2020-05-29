@@ -1,6 +1,3 @@
-CulturalCitiesApp.LoginIntent, CulturalCitiesApp;crc648e100442461880d6.LoginIntent
-CulturalCitiesApp.LoginIntent;crc648e100442461880d6.LoginIntent
-culturalcitiesapp.LoginIntent;crc648e100442461880d6.LoginIntent
 CulturalCitiesApp.MainActivity, CulturalCitiesApp;crc648e100442461880d6.MainActivity
 CulturalCitiesApp.MainActivity;crc648e100442461880d6.MainActivity
 culturalcitiesapp.MainActivity;crc648e100442461880d6.MainActivity
