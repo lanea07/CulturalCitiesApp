@@ -26876,8 +26876,8 @@
 	.section	.rodata.java_type_name.4479,"aMS",%progbits,1
 	.type	.L.java_type_name.4479, %object
 .L.java_type_name.4479:
-	.asciz	"crc648e100442461880d6/LoginIntent"
-	.size	.L.java_type_name.4479, 34
+	.asciz	"crc648e100442461880d6/CustomerRegistration_tblCustomer"
+	.size	.L.java_type_name.4479, 55
 
 	.section	.rodata.java_type_name.4480,"aMS",%progbits,1
 	.type	.L.java_type_name.4480, %object
@@ -65204,8 +65204,8 @@
 	.section	.rodata.managed_type_name.4773,"aMS",%progbits,1
 	.type	.L.managed_type_name.4773, %object
 .L.managed_type_name.4773:
-	.asciz	"CulturalCitiesApp.LoginIntent, CulturalCitiesApp"
-	.size	.L.managed_type_name.4773, 49
+	.asciz	"CulturalCitiesApp.CustomerRegistration_tblCustomer, CulturalCitiesApp"
+	.size	.L.managed_type_name.4773, 70
 	.section	.rodata.managed_type_name.4774,"aMS",%progbits,1
 	.type	.L.managed_type_name.4774, %object
 .L.managed_type_name.4774:
