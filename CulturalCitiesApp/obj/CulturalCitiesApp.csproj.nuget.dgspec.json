@@ -42,6 +42,10 @@
               "target": "Package",
               "version": "[12.0.3, )"
             },
+            "Simple.OData.Client": {
+              "target": "Package",
+              "version": "[5.12.0, )"
+            },
             "Xamarin.Android.Support.Core.Utils": {
               "target": "Package",
               "version": "[28.0.0.3, )"

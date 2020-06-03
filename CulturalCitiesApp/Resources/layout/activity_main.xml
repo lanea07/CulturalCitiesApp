@@ -25,7 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtUsername"
-            android:singleLine="true" />
+            android:singleLine="true" 
+            android:text="lanea07"/>
     </LinearLayout>
 
     <LinearLayout
@@ -49,7 +50,8 @@
             android:id="@+id/txtPassword"
             android:inputType="textPassword"
             android:singleLine="true"
-            android:imeOptions="actionSend" />
+            android:imeOptions="actionSend"
+            android:text="Marianita.07"/>
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"

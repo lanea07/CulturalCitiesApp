@@ -11,6 +11,10 @@ using System.Text;
 using Android.Nfc;
 using System;
 using Android.Views.InputMethods;
+using Simple.OData.Client;
+using System.Linq;
+using System.Collections.Generic;
+using Java.Util;
 
 namespace CulturalCitiesApp
 {
@@ -28,26 +32,46 @@ namespace CulturalCitiesApp
             Button registerButton = FindViewById<Button>(Resource.Id.btnRegister);
             TextView txtUsername = FindViewById<TextView>(Resource.Id.txtUsername);
             TextView txtPassword = FindViewById<TextView>(Resource.Id.txtPassword);
-            string loginServiceUrl = "http://192.168.0.111/culturalcities/webservice/tblCustomers/Login";
+            string loginServiceUrl = "http://192.168.0.111/culturalcities/webservice/";
+            //string loginServiceUrl = "http://192.168.0.111:44322/webservice/";
 
             loginButton.Click += async (sender, args) =>
             {
                 try
                 {
-                    ClienteHTTP cliente = new ClienteHTTP();
+                    var clienteHTTP = new ODataClient(loginServiceUrl);
                     if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text)) throw new Exception("Username or Password cannot be blank or just spaces...");
-                    var resultado = await cliente.Login<CustomerLoginInfo>(new CustomerLoginInfo() { username = txtUsername.Text, password = txtPassword.Text },loginServiceUrl);
-                    switch (cliente.codigoHTTP)
+                    var user = await clienteHTTP.FindEntriesAsync("tblCustomers?$filter=username eq '" + txtUsername.Text.Trim() +"'");
+                    if (user.Count() != 1)
                     {
-                        case 200:
-                            throw new Exception("Login succesful");
-                            break;
-                        case 404:
-                            throw new Exception("Login failed");
-                            break;
-                        default:
-                            throw new Exception("Unknown error");
-                            break;
+                        Toast.MakeText(this, "Fallo la autenticación o el usuario es incorrecto", ToastLength.Long).Show();
+                        return;
+                    }
+                    foreach (var usuario in user)
+                    {
+                        if (usuario["password"].ToString().Trim() == txtPassword.Text.Trim())
+                        {
+                            var userPreferences = await clienteHTTP.FindEntriesAsync("tblCustomerPreferences?" +
+                                "$select=tblPreferenceValue/preference_name,preference_value&" +
+                                "$filter=customer_id+eq+"+usuario["customer_id"]+"&" +
+                                "$expand=tblPreferenceValue");
+                            var prefNameDict = new Dictionary<string, object>();
+                            var prefName = "";
+                            var prefValue = "";
+                            foreach (var preference in userPreferences)
+                            {
+                                prefValue = preference["preference_value"].ToString();
+                                prefNameDict = (Dictionary<string, object>)preference["tblPreferenceValue"];
+                                prefName = prefNameDict["preference_name"].ToString();
+                            }
+                            //Usuario correcto
+                            Toast.MakeText(this, "Login succesful", ToastLength.Long).Show();
+                        }
+                        else
+                        {
+                            //Usuario incorrecto
+                            Toast.MakeText(this, "Login failed", ToastLength.Long).Show();
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -58,7 +82,8 @@ namespace CulturalCitiesApp
 
             registerButton.Click += (sender, args) =>
             {
-                Toast.MakeText(this, "Under construction", ToastLength.Short).Show();
+                Intent intent = new Intent(this, typeof(CustomerRegistration_tblCustomer));
+                StartActivity(intent);
             };
 
             txtPassword.EditorAction += (sender, args) =>
@@ -80,34 +105,5 @@ namespace CulturalCitiesApp
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-    }
-
-    public class ClienteHTTP
-    {
-        public int codigoHTTP { get; set; }
-
-        public ClienteHTTP()
-        {
-            codigoHTTP = 200;
-        }
-
-        public async Task<T> Login<T>(CustomerLoginInfo customerLoginInfo, string url)
-        {
-            HttpClient cliente = new HttpClient();
-            var json = JsonConvert.SerializeObject(customerLoginInfo);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = null;
-            response = await cliente.PostAsync(url, content);
-            json = await response.Content.ReadAsStringAsync();
-            codigoHTTP = (int)response.StatusCode;
-            return JsonConvert.DeserializeObject<T>(json);
-
-        }
-    }
-
-    public class CustomerLoginInfo
-    {
-        public string username { get; set; }
-        public string password { get; set; }
     }
 }

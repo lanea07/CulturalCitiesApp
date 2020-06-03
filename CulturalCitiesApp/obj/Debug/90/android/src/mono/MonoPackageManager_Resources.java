@@ -3,7 +3,17 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "CulturalCitiesApp.dll" comes first in this list. */
 		"CulturalCitiesApp.dll",
+		"Microsoft.Data.Edm.dll",
+		"Microsoft.Data.OData.dll",
+		"Microsoft.OData.Core.dll",
+		"Microsoft.OData.Edm.dll",
+		"Microsoft.Spatial.dll",
 		"Newtonsoft.Json.dll",
+		"Simple.OData.Client.Core.dll",
+		"Simple.OData.Client.Dynamic.dll",
+		"Simple.OData.Client.V3.Adapter.dll",
+		"Simple.OData.Client.V4.Adapter.dll",
+		"System.Spatial.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Core.Runtime.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",
