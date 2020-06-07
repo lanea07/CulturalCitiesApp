@@ -1,7 +1,263 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</LinearLayout>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25dp"
+    android:minHeight="25dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25dp"
+                android:minHeight="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/customerIdLayout">
+                <TextView
+                    android:text="Documento de identidad"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblCustomerId" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtCustomerId"
+                android:singleLine="true"
+                android:imeOptions="actionSend"
+                android:hint="ID"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25dp"
+                android:minHeight="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/customerFirstNameLayout"
+                android:layout_below="@+id/customerIdLayout">
+                <TextView
+                    android:text="Nombres"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblCustomerFirstName" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtCustomerFirstName"
+                    android:singleLine="true"
+                    android:imeOptions="actionSend"
+                    android:hint="Nombres" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25dp"
+                android:minHeight="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/customerLastNameLayout"
+                android:layout_below="@+id/customerFirstNameLayout">
+                <TextView
+                    android:text="Apellidos"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblCustomerLasttName" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtCustomerLastName"
+                    android:singleLine="true"
+                    android:imeOptions="actionSend"
+                    android:hint="Apellidos" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25dp"
+                android:minHeight="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/customerBirthDateLayout"
+                android:layout_below="@+id/customerLastNameLayout">
+                <TextView
+                    android:text="Fecha de Nacimiento"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblCustomerBirth" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:imeOptions="actionSend"
+                android:hint="Fecha de Nacimiento" 
+                android:id="@+id/txtCustomerBirth"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25dp"
+                android:minHeight="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/customerUsernameLayout"
+                android:layout_below="@+id/customerBirthDateLayout">
+                <TextView
+                    android:text="Usuario"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblCustomerUserName" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtCustomerUserName"
+                    android:singleLine="true"
+                    android:imeOptions="actionSend"
+                    android:hint="Elige uno" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25dp"
+                android:minHeight="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/customerPasswordLayout"
+                android:layout_below="@+id/customerUsernameLayout">
+                <TextView
+                    android:text="Password"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblCustomerPassWord" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtCustomerPassWord"
+                    android:singleLine="true"
+                    android:imeOptions="actionSend"
+                    android:hint="Password" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25dp"
+                android:minHeight="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/customerRetypePasswordLayout"
+                android:layout_below="@id/customerPasswordLayout">
+                <TextView
+                    android:text="Retype"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblCustomerPassWord" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtCustomerReTypePassWord"
+                    android:singleLine="true"
+                    android:imeOptions="actionSend"
+                    android:hint="Retype" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25dp"
+                android:minHeight="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/customerEmail"
+                android:layout_below="@+id/customerRetypePasswordLayout">
+                <TextView
+                    android:text="@Email"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblCustomerEmail" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtCustomerEmail"
+                    android:singleLine="true"
+                    android:imeOptions="actionSend"
+                    android:hint="@email" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25dp"
+                android:minHeight="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:id="@+id/customerCountry"
+                android:layout_below="@+id/customerEmail">
+                <TextView
+                    android:text="País"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblCustomerCountry" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/spnCountry" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25dp"
+                android:minHeight="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:id="@+id/customerCity"
+                android:layout_below="@+id/customerCountry">
+                <TextView
+                    android:text="Ciudad"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblCustomerCity" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/spnCity" />
+            </LinearLayout>
+    
+        </LinearLayout>/>
+    /*Bloque Botones de Acción*/
+    
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:text="Register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRegister"
+            android:layout_weight="1"
+            android:textAllCaps="false" />
+    </LinearLayout>/>
+
+</RelativeLayout>
