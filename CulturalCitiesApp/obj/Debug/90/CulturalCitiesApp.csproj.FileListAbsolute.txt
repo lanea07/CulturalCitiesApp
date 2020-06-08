@@ -1,7 +1,6 @@
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\build.props
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\adb.props
-C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\CulturalCitiesApp.csprojAssemblyReference.cache
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\res.flag
@@ -395,3 +394,4 @@ C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\fla
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\flata\736587D9EDB0999A.flata
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\flata\3721E810F8B084A2.flata
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\flata\27305535AFB0F042.flata
+C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\CulturalCitiesApp.csprojAssemblyReference.cache

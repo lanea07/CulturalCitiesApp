@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -7,6 +8,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
@@ -77,14 +79,21 @@ namespace CulturalCitiesApp
                 }
                 catch (Exception ex)
                 {
-                    Toast.MakeText(this, ex.Message, ToastLength.Long).Show();
+                    string nombreArchivo = "BaseFile.txt";
+                    string ruta = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                    string rutaCompleta = Path.Combine(ruta, nombreArchivo);
+
+                    using (var writer = File.CreateText(rutaCompleta))
+                    {
+                        await writer.WriteLineAsync(ex.ToString());
+                    }
+                    Toast.MakeText(this, rutaCompleta/*ex.Message*/, ToastLength.Long).Show();
                 }
             };
 
             registerButton.Click += (sender, args) =>
             {
-                Intent intent = new Intent(this, typeof(CustomerRegistration_tblCustomer));
-                StartActivity(intent);
+                StartActivity(new Intent(this, typeof(CustomerRegistration_tblCustomer)));
             };
 
             txtPassword.EditorAction += (sender, args) =>
