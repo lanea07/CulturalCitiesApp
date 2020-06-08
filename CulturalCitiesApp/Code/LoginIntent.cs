@@ -1,47 +1,43 @@
-﻿using Android.App;
-using Android.OS;
-using Android.Support.V7.App;
-using Android.Runtime;
-using Android.Widget;
-using Android.Content;
-using System.Threading.Tasks;
-using System.Net.Http;
-using Newtonsoft.Json;
-using System.Text;
-using Android.Nfc;
-using System;
-using Android.Views.InputMethods;
-using Simple.OData.Client;
-using System.Linq;
+﻿using System;
 using System.Collections.Generic;
-using Java.Util;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Util;
+using Android.Views;
+using Android.Views.InputMethods;
+using Android.Widget;
+using Simple.OData.Client;
 
 namespace CulturalCitiesApp
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class MainActivity : AppCompatActivity
+    [Activity(Label = "LoginIntent")]
+    public class LoginIntent : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.login_Intent);
 
             Button loginButton = FindViewById<Button>(Resource.Id.btnLogin);
             Button registerButton = FindViewById<Button>(Resource.Id.btnRegister);
             TextView txtUsername = FindViewById<TextView>(Resource.Id.txtUsername);
             TextView txtPassword = FindViewById<TextView>(Resource.Id.txtPassword);
-            string loginServiceUrl = "http://192.168.0.111/culturalcities/webservice/";
-            //string loginServiceUrl = "http://192.168.0.111:44322/webservice/";
+            string url = "http://192.168.0.111/culturalcities/webservice/";
+            //string url = "http://192.168.0.111:44322/webservice/";
 
             loginButton.Click += async (sender, args) =>
             {
                 try
                 {
-                    var clienteHTTP = new ODataClient(loginServiceUrl);
+                    var clienteHTTP = new ODataClient(url);
                     if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text)) throw new Exception("Username or Password cannot be blank or just spaces...");
-                    var user = await clienteHTTP.FindEntriesAsync("tblCustomers?$filter=username eq '" + txtUsername.Text.Trim() +"'");
+                    var user = await clienteHTTP.FindEntriesAsync("tblCustomers?$filter=username eq '" + txtUsername.Text.Trim() + "'");
                     if (user.Count() != 1)
                     {
                         Toast.MakeText(this, "Fallo la autenticación o el usuario es incorrecto", ToastLength.Long).Show();
@@ -53,7 +49,7 @@ namespace CulturalCitiesApp
                         {
                             var userPreferences = await clienteHTTP.FindEntriesAsync("tblCustomerPreferences?" +
                                 "$select=tblPreferenceValue/preference_name,preference_value&" +
-                                "$filter=customer_id+eq+"+usuario["customer_id"]+"&" +
+                                "$filter=customer_id+eq+" + usuario["customer_id"] + "&" +
                                 "$expand=tblPreferenceValue");
                             var prefNameDict = new Dictionary<string, object>();
                             var prefName = "";
@@ -64,8 +60,15 @@ namespace CulturalCitiesApp
                                 prefNameDict = (Dictionary<string, object>)preference["tblPreferenceValue"];
                                 prefName = prefNameDict["preference_name"].ToString();
                             }
+
+
+                            Context mContext = Android.App.Application.Context;
+                            AppPreferences ap = new AppPreferences(mContext);
+                            ap.saveAccessKey(txtUsername.Text);
+
                             //Usuario correcto
                             Toast.MakeText(this, "Login succesful", ToastLength.Long).Show();
+                            StartActivity(new Intent(Application.Context, typeof(MainActivity)));
                         }
                         else
                         {
@@ -76,14 +79,21 @@ namespace CulturalCitiesApp
                 }
                 catch (Exception ex)
                 {
-                    Toast.MakeText(this, ex.Message, ToastLength.Long).Show();
+                    string nombreArchivo = "BaseFile.txt";
+                    string ruta = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                    string rutaCompleta = Path.Combine(ruta, nombreArchivo);
+
+                    using (var writer = File.CreateText(rutaCompleta))
+                    {
+                        await writer.WriteLineAsync(ex.ToString());
+                    }
+                    Toast.MakeText(this, rutaCompleta/*ex.Message*/, ToastLength.Long).Show();
                 }
             };
 
             registerButton.Click += (sender, args) =>
             {
-                Intent intent = new Intent(this, typeof(CustomerRegistration_tblCustomer));
-                StartActivity(intent);
+                StartActivity(new Intent(this, typeof(CustomerRegistration_tblCustomer)));
             };
 
             txtPassword.EditorAction += (sender, args) =>
@@ -97,13 +107,6 @@ namespace CulturalCitiesApp
                     args.Handled = false;
                 }
             };
-            
-        }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }
