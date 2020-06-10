@@ -59,6 +59,7 @@ LinearLayout;obj\Debug\90\res\layout\preferences_intent.xml
 ListView;obj\Debug\90\res\layout\preferences_intent.xml
 menu;obj\Debug\90\res\menu\nav_menu.xml
 paths;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+ProgressBar;obj\Debug\90\res\layout\preferences_intent.xml
 RelativeLayout;obj\Debug\90\res\layout\customer_registration_tblcustomer.xml
 RelativeLayout;obj\Debug\90\res\layout\login_intent.xml
 resources;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\39\jl\res\values\styles.xml
