@@ -100,9 +100,13 @@ namespace CulturalCitiesApp
                     case Resource.Id.session_close:
                         ISharedPreferences pref = PreferenceManager.GetDefaultSharedPreferences(this);
                         ISharedPreferencesEditor editer = pref.Edit();
-                        editer.Remove("UserId").Commit(); ////Remove Spec key values  
+                        editer.Remove("Username").Commit(); ////Remove Spec key values  
+                        editer.Remove("UserID").Commit(); ////Remove Spec key values  
                         StartActivity(new Intent(Application.Context, typeof(LoginIntent)));
                         this.Finish();
+                        break;
+                    case Resource.Id.preferences:
+                        StartActivity(new Intent(Application.Context, typeof(UserPreferences)));
                         break;
                     default:
                         break;

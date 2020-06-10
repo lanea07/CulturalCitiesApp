@@ -13,5 +13,6 @@
             <item android:icon="@drawable/ic_done" android:title="Sub item 5" />
         </menu>  
     </item>
+    <item android:id="@+id/preferences" android:icon="@drawable/ic_dashboard" android:title="Preferencias" />
     <item android:id="@+id/session_close" android:icon="@drawable/ic_dashboard" android:title="Cerrar sesión" />
 </menu> 

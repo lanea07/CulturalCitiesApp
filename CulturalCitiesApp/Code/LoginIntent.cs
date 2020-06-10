@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -64,7 +65,12 @@ namespace CulturalCitiesApp
 
                             Context mContext = Android.App.Application.Context;
                             AppPreferences ap = new AppPreferences(mContext);
-                            ap.saveAccessKey(txtUsername.Text);
+                            Dictionary<string, string> prefs = new Dictionary<string, string>
+                            {
+                                { "username", txtUsername.Text },
+                                { "userid", usuario["customer_id"].ToString() }
+                            };
+                            ap.saveAccessKey(prefs);
 
                             //Usuario correcto
                             Toast.MakeText(this, "Login succesful", ToastLength.Long).Show();

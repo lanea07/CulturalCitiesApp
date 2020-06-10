@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -40,15 +41,15 @@ namespace CulturalCitiesApp
 
             Context mContext = Android.App.Application.Context;
             AppPreferences ap = new AppPreferences(mContext);
-            string key = ap.getAccessKey();
+            Dictionary<string, string> key = ap.getAccessKey();
 
-            if (string.IsNullOrEmpty(key))
+            if (key.Count != 0)
             {
-                StartActivity(new Intent(Application.Context, typeof(LoginIntent)));
+                StartActivity(new Intent(Application.Context, typeof(MainActivity)));
             }
             else
             {
-                StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+                StartActivity(new Intent(Application.Context, typeof(LoginIntent)));
             }
         }
     }

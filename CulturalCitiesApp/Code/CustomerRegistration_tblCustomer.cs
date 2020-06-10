@@ -138,6 +138,8 @@ namespace CulturalCitiesApp
                                         update_time = Convert.ToDateTime(DateTime.Now)
                                     }).InsertEntryAsync();
                                     break;
+                                case "preferred_genres":
+                                    break;
                             }
                         }
                         Toast.MakeText(this, "Registro exitoso", ToastLength.Long).Show();
