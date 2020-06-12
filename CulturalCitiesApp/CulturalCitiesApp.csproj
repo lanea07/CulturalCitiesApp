@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Code\AppPreferences.cs" />
     <Compile Include="Code\CustomerRegistration_tblCustomer.cs" />
+    <Compile Include="Code\EventDetail_Intent.cs" />
     <Compile Include="Code\LoginIntent.cs" />
     <Compile Include="Code\MainActivity.cs" />
     <Compile Include="Code\PhotoAlbum.cs" />
@@ -415,6 +416,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\preferences_intent.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\EventDetail_Intent.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

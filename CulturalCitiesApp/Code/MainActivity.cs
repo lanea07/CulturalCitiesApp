@@ -11,6 +11,7 @@ using V7Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.Design.Widget;
 using Android.Content;
 using Android.Preferences;
+using CulturalCitiesApp.Code;
 
 namespace CulturalCitiesApp
 {
@@ -124,6 +125,7 @@ namespace CulturalCitiesApp
         {
             int photoNum = position + 1; // Display a toast that briefly shows the enumeration of the selected photo:
             Toast.MakeText(this, "This is photo number " + photoNum, ToastLength.Short).Show();
+            StartActivity(new Intent(this, typeof(EventDetail_Intent)).PutExtra("EVENT_ID",photoNum));
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

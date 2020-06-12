@@ -144,14 +144,16 @@ namespace CulturalCitiesApp
                 {
                     var item = lv.GetItemAtPosition(args.Position);
                     var pos = allGenresName.FindIndex(x => x.Equals(item.ToString()));
-                    var itm = allGenresID[pos].ToString();
-                    allGenresID.RemoveAll(x => x.Equals(itm.ToString()));
-                    allGenresName.RemoveAll(x => x.Equals(itm.ToString()));
-                    currentGenresID.Remove(itm);
-                    currentGenresName.Remove(lv.GetItemAtPosition(args.Position).ToString());
-                    adaptador.Remove(lv.GetItemAtPosition(args.Position).ToString());
+                    if (pos > 0)
+                    {
+                        var itm = allGenresID[pos].ToString();
+                        allGenresID.RemoveAll(x => x.Equals(itm.ToString()));
+                        allGenresName.RemoveAll(x => x.Equals(itm.ToString()));
+                        currentGenresID.Remove(itm);
+                        currentGenresName.Remove(lv.GetItemAtPosition(args.Position).ToString());
+                        adaptador.Remove(lv.GetItemAtPosition(args.Position).ToString());
+                    }
                 };
-
             }
             catch (Exception ex)
             {
