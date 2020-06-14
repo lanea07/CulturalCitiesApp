@@ -14,7 +14,7 @@ using Android.Views;
 using Android.Widget;
 using Simple.OData.Client;
 
-namespace CulturalCitiesApp.Code
+namespace CulturalCitiesApp
 {
     [Activity(Label = "EventDetail_Intent", NoHistory = true)]
     public class EventDetail_Intent : Activity
@@ -58,7 +58,9 @@ namespace CulturalCitiesApp.Code
                     }
                     catch (Exception ex)
                     {
-
+                        bmp = GetImageBitmapFromUrl(eventInfoItem["EventImagePath"].ToString().Replace("https://", "http://"))
+                            ;
+                        eventIMG.SetImageBitmap(bmp);
                     }
                     eventTitle.Text = eventInfoItem["name"].ToString();
                     eventGeoLocation.Text = eventInfoItem["geographical_location"].ToString();
@@ -82,7 +84,7 @@ namespace CulturalCitiesApp.Code
             }
         }
 
-        private Android.Graphics.Bitmap GetImageBitmapFromUrl(string url)
+        public static Android.Graphics.Bitmap GetImageBitmapFromUrl(string url)
         {
             Android.Graphics.Bitmap imageBitmap = null;
 

@@ -11,7 +11,6 @@ using V7Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.Design.Widget;
 using Android.Content;
 using Android.Preferences;
-using CulturalCitiesApp.Code;
 
 namespace CulturalCitiesApp
 {
@@ -26,10 +25,12 @@ namespace CulturalCitiesApp
 
         NavigationView navigationView; // Part of sidebar menu
         DrawerLayout drawerLayout; // Part of sidebar menu
+        EventCollection eventlist;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
 
+            
             // Instantiate the photo album:
             mPhotoAlbum = new PhotoAlbum();
             base.OnCreate(savedInstanceState);
@@ -47,6 +48,8 @@ namespace CulturalCitiesApp
             setupDrawerContent(navigationView); //Calling Function  
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView); // Get our RecyclerView layout:
 
+            eventlist = new EventCollection();
+
             //............................................................
             // Layout Manager Setup:
 
@@ -63,7 +66,8 @@ namespace CulturalCitiesApp
 
             // Create an adapter for the RecyclerView, and pass it the
             // data set (the photo album) to manage:
-            mAdapter = new PhotoAlbumAdapter(mPhotoAlbum);
+            //mAdapter = new PhotoAlbumAdapter(mPhotoAlbum);
+            mAdapter = new PhotoAlbumAdapter(eventlist);
 
             mAdapter.ItemClick += OnItemClick; // Register the item click handler (below) with the adapter:
 
@@ -147,8 +151,7 @@ namespace CulturalCitiesApp
         public ImageView Image { get; private set; }
         public TextView Caption { get; private set; }
 
-        public PhotoViewHolder(View itemView, Action<int> listener) // Get references to the views defined in the CardView layout.
-            : base(itemView)
+        public PhotoViewHolder(View itemView, Action<int> listener) : base(itemView) // Get references to the views defined in the CardView layout.
         {
             // Locate and cache view references:
             Image = itemView.FindViewById<ImageView>(Resource.Id.imageView);
@@ -167,9 +170,11 @@ namespace CulturalCitiesApp
     public class PhotoAlbumAdapter : RecyclerView.Adapter
     {
         public event EventHandler<int> ItemClick; // Event handler for item clicks:
-        PhotoAlbum mPhotoAlbum; // Underlying data set (a photo album):
+        //PhotoAlbum mPhotoAlbum; // Underlying data set (a photo album):
+        EventCollection mPhotoAlbum; // Underlying data set (a photo album):
 
-        public PhotoAlbumAdapter(PhotoAlbum photoAlbum) // Load the adapter with the data set (photo album) at construction time:
+        //public PhotoAlbumAdapter(PhotoAlbum photoAlbum) // Load the adapter with the data set (photo album) at construction time:
+        public PhotoAlbumAdapter(EventCollection photoAlbum) // Load the adapter with the data set (photo album) at construction time:
         {
             mPhotoAlbum = photoAlbum;
         }
@@ -192,12 +197,15 @@ namespace CulturalCitiesApp
 
             // Set the ImageView and TextView in this ViewHolder's CardView 
             // from this position in the photo album:
-            vh.Image.SetImageResource(mPhotoAlbum[position].PhotoID);
-            vh.Caption.Text = mPhotoAlbum[position].Caption;
+            //vh.Image.SetImageResource(mPhotoAlbum[position].PhotoID);
+            Android.Graphics.Bitmap bmp = EventDetail_Intent.GetImageBitmapFromUrl(mPhotoAlbum[position].EventImagePath.Replace("https://", "http://"));
+            vh.Image.SetImageBitmap(bmp);
+            vh.Caption.Text = mPhotoAlbum[position].name;
         }
 
         public override int ItemCount // Return the number of photos available in the photo album:
         {
+            //get { return mPhotoAlbum.NumPhotos; }
             get { return mPhotoAlbum.NumPhotos; }
         }
 

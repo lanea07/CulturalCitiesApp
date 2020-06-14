@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidLinkMode>Full</AndroidLinkMode>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis />
   </PropertyGroup>
@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Code\AppPreferences.cs" />
     <Compile Include="Code\CustomerRegistration_tblCustomer.cs" />
+    <Compile Include="Code\Evento.cs" />
     <Compile Include="Code\EventDetail_Intent.cs" />
     <Compile Include="Code\LoginIntent.cs" />
     <Compile Include="Code\MainActivity.cs" />

@@ -610,3 +610,4 @@ C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\sta
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\CulturalCitiesApp.csprojAssemblyReference.cache
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\res\layout\eventdetail_intent.xml
 C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\android\src\crc64f279ad0140fde5fc\EventDetail_Intent.java
+C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\android\src\crc648e100442461880d6\EventDetail_Intent.java

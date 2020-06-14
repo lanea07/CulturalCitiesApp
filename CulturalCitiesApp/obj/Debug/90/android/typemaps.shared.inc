@@ -28604,158 +28604,158 @@
 	.section	.rodata.java_type_name.4767,"aMS",@progbits,1
 	.type	.L.java_type_name.4767, @object
 .L.java_type_name.4767:
-	.asciz	"crc648e100442461880d6/LoginIntent"
-	.size	.L.java_type_name.4767, 34
+	.asciz	"crc648e100442461880d6/EventDetail_Intent"
+	.size	.L.java_type_name.4767, 41
 
 	.section	.rodata.java_type_name.4768,"aMS",@progbits,1
 	.type	.L.java_type_name.4768, @object
 .L.java_type_name.4768:
-	.asciz	"crc648e100442461880d6/MainActivity"
-	.size	.L.java_type_name.4768, 35
+	.asciz	"crc648e100442461880d6/LoginIntent"
+	.size	.L.java_type_name.4768, 34
 
 	.section	.rodata.java_type_name.4769,"aMS",@progbits,1
 	.type	.L.java_type_name.4769, @object
 .L.java_type_name.4769:
-	.asciz	"crc648e100442461880d6/PhotoAlbumAdapter"
-	.size	.L.java_type_name.4769, 40
+	.asciz	"crc648e100442461880d6/MainActivity"
+	.size	.L.java_type_name.4769, 35
 
 	.section	.rodata.java_type_name.4770,"aMS",@progbits,1
 	.type	.L.java_type_name.4770, @object
 .L.java_type_name.4770:
-	.asciz	"crc648e100442461880d6/PhotoViewHolder"
-	.size	.L.java_type_name.4770, 38
+	.asciz	"crc648e100442461880d6/PhotoAlbumAdapter"
+	.size	.L.java_type_name.4770, 40
 
 	.section	.rodata.java_type_name.4771,"aMS",@progbits,1
 	.type	.L.java_type_name.4771, @object
 .L.java_type_name.4771:
-	.asciz	"crc648e100442461880d6/SplashActivity"
-	.size	.L.java_type_name.4771, 37
+	.asciz	"crc648e100442461880d6/PhotoViewHolder"
+	.size	.L.java_type_name.4771, 38
 
 	.section	.rodata.java_type_name.4772,"aMS",@progbits,1
 	.type	.L.java_type_name.4772, @object
 .L.java_type_name.4772:
-	.asciz	"crc648e100442461880d6/UserPreferences"
-	.size	.L.java_type_name.4772, 38
+	.asciz	"crc648e100442461880d6/SplashActivity"
+	.size	.L.java_type_name.4772, 37
 
 	.section	.rodata.java_type_name.4773,"aMS",@progbits,1
 	.type	.L.java_type_name.4773, @object
 .L.java_type_name.4773:
-	.asciz	"crc64a0e0a82d0db9a07d/AccelerometerListener"
-	.size	.L.java_type_name.4773, 44
+	.asciz	"crc648e100442461880d6/UserPreferences"
+	.size	.L.java_type_name.4773, 38
 
 	.section	.rodata.java_type_name.4774,"aMS",@progbits,1
 	.type	.L.java_type_name.4774, @object
 .L.java_type_name.4774:
-	.asciz	"crc64a0e0a82d0db9a07d/ActivityLifecycleContextListener"
-	.size	.L.java_type_name.4774, 55
+	.asciz	"crc64a0e0a82d0db9a07d/AccelerometerListener"
+	.size	.L.java_type_name.4774, 44
 
 	.section	.rodata.java_type_name.4775,"aMS",@progbits,1
 	.type	.L.java_type_name.4775, @object
 .L.java_type_name.4775:
-	.asciz	"crc64a0e0a82d0db9a07d/BarometerListener"
-	.size	.L.java_type_name.4775, 40
+	.asciz	"crc64a0e0a82d0db9a07d/ActivityLifecycleContextListener"
+	.size	.L.java_type_name.4775, 55
 
 	.section	.rodata.java_type_name.4776,"aMS",@progbits,1
 	.type	.L.java_type_name.4776, @object
 .L.java_type_name.4776:
-	.asciz	"crc64a0e0a82d0db9a07d/BatteryBroadcastReceiver"
-	.size	.L.java_type_name.4776, 47
+	.asciz	"crc64a0e0a82d0db9a07d/BarometerListener"
+	.size	.L.java_type_name.4776, 40
 
 	.section	.rodata.java_type_name.4777,"aMS",@progbits,1
 	.type	.L.java_type_name.4777, @object
 .L.java_type_name.4777:
-	.asciz	"crc64a0e0a82d0db9a07d/ConnectivityBroadcastReceiver"
-	.size	.L.java_type_name.4777, 52
+	.asciz	"crc64a0e0a82d0db9a07d/BatteryBroadcastReceiver"
+	.size	.L.java_type_name.4777, 47
 
 	.section	.rodata.java_type_name.4778,"aMS",@progbits,1
 	.type	.L.java_type_name.4778, @object
 .L.java_type_name.4778:
-	.asciz	"crc64a0e0a82d0db9a07d/EnergySaverBroadcastReceiver"
-	.size	.L.java_type_name.4778, 51
+	.asciz	"crc64a0e0a82d0db9a07d/ConnectivityBroadcastReceiver"
+	.size	.L.java_type_name.4778, 52
 
 	.section	.rodata.java_type_name.4779,"aMS",@progbits,1
 	.type	.L.java_type_name.4779, @object
 .L.java_type_name.4779:
-	.asciz	"crc64a0e0a82d0db9a07d/GyroscopeListener"
-	.size	.L.java_type_name.4779, 40
+	.asciz	"crc64a0e0a82d0db9a07d/EnergySaverBroadcastReceiver"
+	.size	.L.java_type_name.4779, 51
 
 	.section	.rodata.java_type_name.4780,"aMS",@progbits,1
 	.type	.L.java_type_name.4780, @object
 .L.java_type_name.4780:
-	.asciz	"crc64a0e0a82d0db9a07d/Listener"
-	.size	.L.java_type_name.4780, 31
+	.asciz	"crc64a0e0a82d0db9a07d/GyroscopeListener"
+	.size	.L.java_type_name.4780, 40
 
 	.section	.rodata.java_type_name.4781,"aMS",@progbits,1
 	.type	.L.java_type_name.4781, @object
 .L.java_type_name.4781:
-	.asciz	"crc64a0e0a82d0db9a07d/MagnetometerListener"
-	.size	.L.java_type_name.4781, 43
+	.asciz	"crc64a0e0a82d0db9a07d/Listener"
+	.size	.L.java_type_name.4781, 31
 
 	.section	.rodata.java_type_name.4782,"aMS",@progbits,1
 	.type	.L.java_type_name.4782, @object
 .L.java_type_name.4782:
-	.asciz	"crc64a0e0a82d0db9a07d/OrientationSensorListener"
-	.size	.L.java_type_name.4782, 48
+	.asciz	"crc64a0e0a82d0db9a07d/MagnetometerListener"
+	.size	.L.java_type_name.4782, 43
 
 	.section	.rodata.java_type_name.4783,"aMS",@progbits,1
 	.type	.L.java_type_name.4783, @object
 .L.java_type_name.4783:
-	.asciz	"crc64a0e0a82d0db9a07d/SensorListener"
-	.size	.L.java_type_name.4783, 37
+	.asciz	"crc64a0e0a82d0db9a07d/OrientationSensorListener"
+	.size	.L.java_type_name.4783, 48
 
 	.section	.rodata.java_type_name.4784,"aMS",@progbits,1
 	.type	.L.java_type_name.4784, @object
 .L.java_type_name.4784:
-	.asciz	"crc64a0e0a82d0db9a07d/SingleLocationListener"
-	.size	.L.java_type_name.4784, 45
+	.asciz	"crc64a0e0a82d0db9a07d/SensorListener"
+	.size	.L.java_type_name.4784, 37
 
 	.section	.rodata.java_type_name.4785,"aMS",@progbits,1
 	.type	.L.java_type_name.4785, @object
 .L.java_type_name.4785:
-	.asciz	"crc64a0e0a82d0db9a07d/TextToSpeechImplementation"
-	.size	.L.java_type_name.4785, 49
+	.asciz	"crc64a0e0a82d0db9a07d/SingleLocationListener"
+	.size	.L.java_type_name.4785, 45
 
 	.section	.rodata.java_type_name.4786,"aMS",@progbits,1
 	.type	.L.java_type_name.4786, @object
 .L.java_type_name.4786:
-	.asciz	"crc64a98abb514ffad9f1/CustomTabsServiceConnectionImpl"
-	.size	.L.java_type_name.4786, 54
+	.asciz	"crc64a0e0a82d0db9a07d/TextToSpeechImplementation"
+	.size	.L.java_type_name.4786, 49
 
 	.section	.rodata.java_type_name.4787,"aMS",@progbits,1
 	.type	.L.java_type_name.4787, @object
 .L.java_type_name.4787:
-	.asciz	"crc64a98abb514ffad9f1/KeepAliveService"
-	.size	.L.java_type_name.4787, 39
+	.asciz	"crc64a98abb514ffad9f1/CustomTabsServiceConnectionImpl"
+	.size	.L.java_type_name.4787, 54
 
 	.section	.rodata.java_type_name.4788,"aMS",@progbits,1
 	.type	.L.java_type_name.4788, @object
 .L.java_type_name.4788:
-	.asciz	"crc64ee486da937c010f4/ButtonRenderer"
-	.size	.L.java_type_name.4788, 37
+	.asciz	"crc64a98abb514ffad9f1/KeepAliveService"
+	.size	.L.java_type_name.4788, 39
 
 	.section	.rodata.java_type_name.4789,"aMS",@progbits,1
 	.type	.L.java_type_name.4789, @object
 .L.java_type_name.4789:
-	.asciz	"crc64ee486da937c010f4/FrameRenderer"
-	.size	.L.java_type_name.4789, 36
+	.asciz	"crc64ee486da937c010f4/ButtonRenderer"
+	.size	.L.java_type_name.4789, 37
 
 	.section	.rodata.java_type_name.4790,"aMS",@progbits,1
 	.type	.L.java_type_name.4790, @object
 .L.java_type_name.4790:
-	.asciz	"crc64ee486da937c010f4/ImageRenderer"
+	.asciz	"crc64ee486da937c010f4/FrameRenderer"
 	.size	.L.java_type_name.4790, 36
 
 	.section	.rodata.java_type_name.4791,"aMS",@progbits,1
 	.type	.L.java_type_name.4791, @object
 .L.java_type_name.4791:
-	.asciz	"crc64ee486da937c010f4/LabelRenderer"
+	.asciz	"crc64ee486da937c010f4/ImageRenderer"
 	.size	.L.java_type_name.4791, 36
 
 	.section	.rodata.java_type_name.4792,"aMS",@progbits,1
 	.type	.L.java_type_name.4792, @object
 .L.java_type_name.4792:
-	.asciz	"crc64f279ad0140fde5fc/EventDetail_Intent"
-	.size	.L.java_type_name.4792, 41
+	.asciz	"crc64ee486da937c010f4/LabelRenderer"
+	.size	.L.java_type_name.4792, 36
 
 	.section	.rodata.java_type_name.4793,"aMS",@progbits,1
 	.type	.L.java_type_name.4793, @object
@@ -67487,13 +67487,13 @@
 	.section	.rodata.managed_type_name.4872,"aMS",@progbits,1
 	.type	.L.managed_type_name.4872, @object
 .L.managed_type_name.4872:
-	.asciz	"CulturalCitiesApp.Code.EventDetail_Intent, CulturalCitiesApp"
-	.size	.L.managed_type_name.4872, 61
+	.asciz	"CulturalCitiesApp.CustomerRegistration_tblCustomer, CulturalCitiesApp"
+	.size	.L.managed_type_name.4872, 70
 	.section	.rodata.managed_type_name.4873,"aMS",@progbits,1
 	.type	.L.managed_type_name.4873, @object
 .L.managed_type_name.4873:
-	.asciz	"CulturalCitiesApp.CustomerRegistration_tblCustomer, CulturalCitiesApp"
-	.size	.L.managed_type_name.4873, 70
+	.asciz	"CulturalCitiesApp.EventDetail_Intent, CulturalCitiesApp"
+	.size	.L.managed_type_name.4873, 56
 	.section	.rodata.managed_type_name.4874,"aMS",@progbits,1
 	.type	.L.managed_type_name.4874, @object
 .L.managed_type_name.4874:
