@@ -7,6 +7,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.Res;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
@@ -51,17 +52,8 @@ namespace CulturalCitiesApp
                 foreach (var eventInfoItem in eventInfo)
                 {
                     Android.Graphics.Bitmap bmp;
-                    try
-                    {
-                        bmp = GetImageBitmapFromUrl(eventInfoItem["EventImagePath"].ToString());
-                        eventIMG.SetImageBitmap(bmp);
-                    }
-                    catch (Exception ex)
-                    {
-                        bmp = GetImageBitmapFromUrl(eventInfoItem["EventImagePath"].ToString().Replace("https://", "http://"))
-                            ;
-                        eventIMG.SetImageBitmap(bmp);
-                    }
+                    bmp = GetImageBitmapFromUrl(eventInfoItem["EventImagePath"].ToString());
+                    eventIMG.SetImageBitmap(bmp);
                     eventTitle.Text = eventInfoItem["name"].ToString();
                     eventGeoLocation.Text = eventInfoItem["geographical_location"].ToString();
                     eventURL.Text = eventInfoItem["event_source_site_page"].ToString();
@@ -90,11 +82,40 @@ namespace CulturalCitiesApp
 
             using (var webClient = new WebClient())
             {
-                var imageBytes = webClient.DownloadData(url);
-                if (imageBytes != null && imageBytes.Length > 0)
+                try
                 {
-                    imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                    var imageBytes = webClient.DownloadData(url);
+                    if (imageBytes != null && imageBytes.Length > 0)
+                    {
+                        imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                    }
                 }
+                catch (WebException ex)
+                {
+                    imageBitmap = BitmapFactory.DecodeResource(Application.Context.Resources, Resource.Drawable.event_image_not_available);
+                }
+                catch (Exception ex)
+                {
+                    switch (ex.InnerException.HResult)
+                    {
+                        case -2146233079:
+                            
+                            break;
+                        case -2146233087:
+                            string fixedURL = url.Replace("https://", "http://");
+                            var imageBytes = webClient.DownloadData(fixedURL);
+                            if (imageBytes != null && imageBytes.Length > 0)
+                            {
+                                imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                            }
+                            break;
+                    }
+                }
+            }
+
+            if (imageBitmap == null)
+            {
+                imageBitmap = BitmapFactory.DecodeResource(Application.Context.Resources, Resource.Drawable.event_image_not_available);
             }
 
             return imageBitmap;

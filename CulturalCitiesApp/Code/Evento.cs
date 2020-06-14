@@ -43,10 +43,10 @@ namespace CulturalCitiesApp
 
 		public EventCollection()
 		{
-            LoadEvents();
+            //LoadEvents();
 		}
 
-		public async Task LoadEvents(int beginIn = 0, int pageLenght = 10)
+		public async Task<EventCollection> LoadEvents(int beginIn = 0, int pageLenght = 10)
 		{
 			List<Evento> evt = new List<Evento>();
 			object obj;
@@ -73,6 +73,7 @@ namespace CulturalCitiesApp
 				
             }
 			eventList = evt.ToArray();
+			return this;
 		}
 
 		public int NumPhotos
@@ -84,6 +85,11 @@ namespace CulturalCitiesApp
 		{
 			get { return eventList[i]; }
 		}
+
+		public Evento[] GetEventos()
+        {
+			return this.eventList;
+        }
 
 	}
 }
