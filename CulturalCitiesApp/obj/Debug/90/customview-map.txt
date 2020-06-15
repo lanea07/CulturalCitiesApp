@@ -4,6 +4,7 @@ adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 alpha;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\39\jl\res\anim\enterfromleft.xml
 alpha;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\39\jl\res\anim\exittoleft.xml
+android.support.design.button.MaterialButton;obj\Debug\90\res\layout\eventdetail_intent.xml
 android.support.design.widget.AppBarLayout;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\39\jl\res\layout\flyoutcontent.xml
 android.support.design.widget.AppBarLayout;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\39\jl\res\layout\rootlayout.xml
 android.support.design.widget.AppBarLayout;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\39\jl\res\layout\shellcontent.xml
@@ -42,6 +43,7 @@ foreground;obj\Debug\90\res\mipmap-anydpi-v26\ic_launcher_round.xml
 FrameLayout;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\39\jl\res\layout\bottomtablayout.xml
 FrameLayout;obj\Debug\90\res\layout\photocardview.xml
 group;obj\Debug\90\res\menu\nav_menu.xml
+ImageView;obj\Debug\90\res\layout\eventdetail_intent.xml
 ImageView;obj\Debug\90\res\layout\photocardview.xml
 include;obj\Debug\90\res\layout\activity_main.xml
 item;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\39\jl\res\values\styles.xml
@@ -52,6 +54,7 @@ layer-list;obj\Debug\90\res\drawable\splash_screen.xml
 LinearLayout;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\39\jl\res\layout\bottomtablayout.xml
 LinearLayout;obj\Debug\90\res\layout\activity_main.xml
 LinearLayout;obj\Debug\90\res\layout\customer_registration_tblcustomer.xml
+LinearLayout;obj\Debug\90\res\layout\eventdetail_intent.xml
 LinearLayout;obj\Debug\90\res\layout\login_intent.xml
 LinearLayout;obj\Debug\90\res\layout\nav_header.xml
 LinearLayout;obj\Debug\90\res\layout\photocardview.xml
@@ -59,6 +62,7 @@ LinearLayout;obj\Debug\90\res\layout\preferences_intent.xml
 ListView;obj\Debug\90\res\layout\preferences_intent.xml
 menu;obj\Debug\90\res\menu\nav_menu.xml
 paths;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\38\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+ProgressBar;obj\Debug\90\res\layout\preferences_intent.xml
 RelativeLayout;obj\Debug\90\res\layout\customer_registration_tblcustomer.xml
 RelativeLayout;obj\Debug\90\res\layout\login_intent.xml
 resources;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\39\jl\res\values\styles.xml
@@ -75,6 +79,7 @@ string;obj\Debug\90\res\values\strings.xml
 style;C:\Users\juanc\source\repos\CulturalCitiesApp\CulturalCitiesApp\obj\Debug\90\lp\39\jl\res\values\styles.xml
 style;obj\Debug\90\res\values\styles.xml
 TextView;obj\Debug\90\res\layout\customer_registration_tblcustomer.xml
+TextView;obj\Debug\90\res\layout\eventdetail_intent.xml
 TextView;obj\Debug\90\res\layout\list_item.xml
 TextView;obj\Debug\90\res\layout\login_intent.xml
 TextView;obj\Debug\90\res\layout\nav_header.xml

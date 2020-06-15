@@ -11,6 +11,7 @@ using V7Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.Design.Widget;
 using Android.Content;
 using Android.Preferences;
+using static Android.Support.V7.Widget.RecyclerView;
 
 namespace CulturalCitiesApp
 {
@@ -19,15 +20,17 @@ namespace CulturalCitiesApp
     {
 
         RecyclerView mRecyclerView; // RecyclerView instance that displays the photo album:
-        RecyclerView.LayoutManager mLayoutManager; // Layout manager that lays out each card in the RecyclerView:
+        LinearLayoutManager mLayoutManager; // Layout manager that lays out each card in the RecyclerView:
         PhotoAlbumAdapter mAdapter; // Adapter that accesses the data set (a photo album):
         PhotoAlbum mPhotoAlbum; // Photo album that is managed by the adapter:
 
         NavigationView navigationView; // Part of sidebar menu
         DrawerLayout drawerLayout; // Part of sidebar menu
+        EventCollection eventlist;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected async override void OnCreate(Bundle savedInstanceState)
         {
+
 
             // Instantiate the photo album:
             mPhotoAlbum = new PhotoAlbum();
@@ -46,6 +49,8 @@ namespace CulturalCitiesApp
             setupDrawerContent(navigationView); //Calling Function  
             mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView); // Get our RecyclerView layout:
 
+            eventlist = new EventCollection();
+
             //............................................................
             // Layout Manager Setup:
 
@@ -55,6 +60,16 @@ namespace CulturalCitiesApp
             // mLayoutManager = new GridLayoutManager
             //        (this, 2, GridLayoutManager.Horizontal, false);
 
+            var onScrollListener = new XamarinRecyclerViewOnScrollListener(mLayoutManager);
+            onScrollListener.LoadMoreEvent += async (object sender, MyEventArgs e) => {
+                var eventos = await eventlist.LoadEvents(pageLenght: e.ItemCount + 10);
+                mAdapter.NotifyDataSetChanged();
+            };
+
+            mRecyclerView.AddOnScrollListener(onScrollListener);
+
+
+
             mRecyclerView.SetLayoutManager(mLayoutManager); // Plug the layout manager into the RecyclerView:
 
             //............................................................
@@ -62,7 +77,9 @@ namespace CulturalCitiesApp
 
             // Create an adapter for the RecyclerView, and pass it the
             // data set (the photo album) to manage:
-            mAdapter = new PhotoAlbumAdapter(mPhotoAlbum);
+            //mAdapter = new PhotoAlbumAdapter(mPhotoAlbum);
+            var eventos = await eventlist.LoadEvents();
+            mAdapter = new PhotoAlbumAdapter(eventos);
 
             mAdapter.ItemClick += OnItemClick; // Register the item click handler (below) with the adapter:
 
@@ -122,8 +139,10 @@ namespace CulturalCitiesApp
 
         void OnItemClick(object sender, int position) // Handler for the item click event:
         {
-            int photoNum = position + 1; // Display a toast that briefly shows the enumeration of the selected photo:
-            Toast.MakeText(this, "This is photo number " + photoNum, ToastLength.Short).Show();
+            var eventID = eventlist[position].event_id;
+            //int photoNum = position + 1; // Display a toast that briefly shows the enumeration of the selected photo:
+            //Toast.MakeText(this, "This is photo number " + photoNum, ToastLength.Short).Show();
+            StartActivity(new Intent(this, typeof(EventDetail_Intent)).PutExtra("EVENT_ID", eventID));
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -145,8 +164,7 @@ namespace CulturalCitiesApp
         public ImageView Image { get; private set; }
         public TextView Caption { get; private set; }
 
-        public PhotoViewHolder(View itemView, Action<int> listener) // Get references to the views defined in the CardView layout.
-            : base(itemView)
+        public PhotoViewHolder(View itemView, Action<int> listener) : base(itemView) // Get references to the views defined in the CardView layout.
         {
             // Locate and cache view references:
             Image = itemView.FindViewById<ImageView>(Resource.Id.imageView);
@@ -165,9 +183,11 @@ namespace CulturalCitiesApp
     public class PhotoAlbumAdapter : RecyclerView.Adapter
     {
         public event EventHandler<int> ItemClick; // Event handler for item clicks:
-        PhotoAlbum mPhotoAlbum; // Underlying data set (a photo album):
+        //PhotoAlbum mPhotoAlbum; // Underlying data set (a photo album):
+        EventCollection mPhotoAlbum; // Underlying data set (a photo album):
 
-        public PhotoAlbumAdapter(PhotoAlbum photoAlbum) // Load the adapter with the data set (photo album) at construction time:
+        //public PhotoAlbumAdapter(PhotoAlbum photoAlbum) // Load the adapter with the data set (photo album) at construction time:
+        public PhotoAlbumAdapter(EventCollection photoAlbum) // Load the adapter with the data set (photo album) at construction time:
         {
             mPhotoAlbum = photoAlbum;
         }
@@ -190,12 +210,15 @@ namespace CulturalCitiesApp
 
             // Set the ImageView and TextView in this ViewHolder's CardView 
             // from this position in the photo album:
-            vh.Image.SetImageResource(mPhotoAlbum[position].PhotoID);
-            vh.Caption.Text = mPhotoAlbum[position].Caption;
+            //vh.Image.SetImageResource(mPhotoAlbum[position].PhotoID);
+            Android.Graphics.Bitmap bmp = EventDetail_Intent.GetImageBitmapFromUrl(mPhotoAlbum[position].EventImagePath.Replace("https://", "http://"));
+            vh.Image.SetImageBitmap(bmp);
+            vh.Caption.Text = mPhotoAlbum[position].name;
         }
 
         public override int ItemCount // Return the number of photos available in the photo album:
         {
+            //get { return mPhotoAlbum.NumPhotos; }
             get { return mPhotoAlbum.NumPhotos; }
         }
 
@@ -203,6 +226,42 @@ namespace CulturalCitiesApp
         {
             if (ItemClick != null)
                 ItemClick(this, position);
+        }
+    }
+
+    public class XamarinRecyclerViewOnScrollListener : RecyclerView.OnScrollListener
+    {
+        public delegate void LoadMoreEventHandler(object sender, MyEventArgs e);
+        public event LoadMoreEventHandler LoadMoreEvent;
+
+        private LinearLayoutManager LayoutManager;
+
+        public XamarinRecyclerViewOnScrollListener(LinearLayoutManager layoutManager)
+        {
+            LayoutManager = layoutManager;
+        }
+
+        public override void OnScrolled(RecyclerView recyclerView, int dx, int dy)
+        {
+            base.OnScrolled(recyclerView, dx, dy);
+
+            var visibleItemCount = recyclerView.ChildCount;
+            var totalItemCount = recyclerView.GetAdapter().ItemCount;
+            var pastVisiblesItems = LayoutManager.FindFirstVisibleItemPosition();
+
+            if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                LoadMoreEvent(this, new MyEventArgs(totalItemCount));
+            }
+        }
+    }
+
+    public class MyEventArgs
+    {
+        public int ItemCount { get; set; }
+
+        public MyEventArgs(int ItemCount)
+        {
+            this.ItemCount = ItemCount;
         }
     }
 }

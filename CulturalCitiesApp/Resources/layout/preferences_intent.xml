@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -8,7 +8,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="2">
         <TextView
             android:text="Buscar Genero"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -16,11 +17,21 @@
             android:layout_height="wrap_content"
             android:minWidth="25px"
             android:minHeight="25px"
-            android:id="@+id/textView1" />
+            android:layout_weight="1"
+            android:id="@+id/textView1"/>
         <AutoCompleteTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/buscadorGeneros" />
+            android:layout_weight="10"
+            android:id="@+id/buscadorGeneros"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:id="@+id/genresSearchProgresBar"/>
 
     </LinearLayout>
     <ListView
@@ -29,5 +40,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/generos" />
+        <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:text="Guardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSavePreferences"
+            android:enabled="false"
+            android:textAllCaps="false" />
 
+    </LinearLayout>
 </LinearLayout>
