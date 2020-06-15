@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
-
+using System.Text.RegularExpressions;
 using Android.App;
 using Android.Content;
 using Android.Content.Res;
@@ -84,10 +84,17 @@ namespace CulturalCitiesApp
             {
                 try
                 {
-                    var imageBytes = webClient.DownloadData(url);
-                    if (imageBytes != null && imageBytes.Length > 0)
+                    if (!Regex.IsMatch(url, "^png|bmp|jpg|jpeg$", RegexOptions.IgnoreCase))
                     {
-                        imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                        imageBitmap = BitmapFactory.DecodeResource(Application.Context.Resources, Resource.Drawable.event_image_not_available);
+                    }
+                    else
+                    {
+                        var imageBytes = webClient.DownloadData(url);
+                        if (imageBytes != null && imageBytes.Length > 0)
+                        {
+                            imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);
+                        }
                     }
                 }
                 catch (WebException ex)

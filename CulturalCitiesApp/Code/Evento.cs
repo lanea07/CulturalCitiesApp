@@ -49,7 +49,6 @@ namespace CulturalCitiesApp
 		public async Task<EventCollection> LoadEvents(int beginIn = 0, int pageLenght = 10)
 		{
 			List<Evento> evt = new List<Evento>();
-			object obj;
             try
             {
 				var result = await clienteHTTP.FindEntriesAsync("tblEvents?$top=" + pageLenght + "&$skip=" + beginIn + "");

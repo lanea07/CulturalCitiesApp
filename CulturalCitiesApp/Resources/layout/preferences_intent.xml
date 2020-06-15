@@ -47,7 +47,7 @@
         android:layout_margin="20dp"
         android:layout_alignParentBottom="true">
         <Button
-            android:text="Login"
+            android:text="Guardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnSavePreferences"

@@ -30,6 +30,7 @@ namespace CulturalCitiesApp
         private List<string> allGenresName = new List<string>();
         private Button btnSavePreferences;
         private ArrayAdapter<string> adaptador;
+        static ODataClient clienteHTTP = new ODataClient(url);
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,7 +41,6 @@ namespace CulturalCitiesApp
             SetContentView(Resource.Layout.preferences_intent);
 
             AutoCompleteTextView genresSelector = FindViewById<AutoCompleteTextView>(Resource.Id.buscadorGeneros);
-            ODataClient clienteHTTP = new ODataClient(url);
 
             mContext = Android.App.Application.Context;
             ap = new AppPreferences(mContext);
@@ -94,15 +94,15 @@ namespace CulturalCitiesApp
                 string preferences = string.Join(",", currentGenresID.ToArray());
                 var registry = new
                 {
-                    customer_id = key["userID"],
-                    preference_id = 9,
                     preference_value = preferences,
                     //create_time = Convert.ToDateTime(DateTime.Now),
                     update_time = Convert.ToDateTime(DateTime.Now)
                 };
+
                 try
                 {
-                    var result = await clienteHTTP.For("tblCustomerPreferences").Key(new { customer_id = int.Parse(key["userID"]), preference_id = 9 }).Set(registry).UpdateEntryAsync();
+                    var result = await clienteHTTP.For("tblCustomerPreferences").Key(int.Parse(key["userID"]), 9).Set(registry).UpdateEntryAsync();
+                    //var result = await clienteHTTP.For("tblCustomerPreferences").Key(suma).Set(registry).UpdateEntryAsync();
                 }
                 catch (Exception ex)
                 {
@@ -143,12 +143,10 @@ namespace CulturalCitiesApp
                 lv.ItemClick += (sender, args) =>
                 {
                     var item = lv.GetItemAtPosition(args.Position);
-                    var pos = allGenresName.FindIndex(x => x.Equals(item.ToString()));
+                    var pos = currentGenresName.FindIndex(x => x.Equals(item.ToString()));
                     if (pos > 0)
                     {
-                        var itm = allGenresID[pos].ToString();
-                        allGenresID.RemoveAll(x => x.Equals(itm.ToString()));
-                        allGenresName.RemoveAll(x => x.Equals(itm.ToString()));
+                        var itm = currentGenresID[pos].ToString();
                         currentGenresID.Remove(itm);
                         currentGenresName.Remove(lv.GetItemAtPosition(args.Position).ToString());
                         adaptador.Remove(lv.GetItemAtPosition(args.Position).ToString());
